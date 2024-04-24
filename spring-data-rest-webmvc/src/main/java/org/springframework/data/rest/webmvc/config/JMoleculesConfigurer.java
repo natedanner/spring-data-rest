@@ -88,7 +88,7 @@ class JMoleculesConfigurer implements WebMvcConfigurer, RepositoryRestConfigurer
 	@Bean
 	BackendIdConverter jMoleculesEntitiesBackendIdConverter(PersistentEntities entities,
 			@Qualifier("mvcConversionService") ObjectFactory<ConversionService> conversionService) {
-		return new JMoleculesBackendIdentifierConverter(entities, () -> conversionService.getObject());
+		return new JMoleculesBackendIdentifierConverter(entities, conversionService::getObject);
 	}
 
 	/**

@@ -123,7 +123,7 @@ class EntityLookupConfiguration implements EntityLookupRegistrar {
 
 		@Override
 		public <ID2> LookupRegistrar<T, ID2, R> withIdMapping(Converter<T, ID2> idMapping) {
-			return new MappingBuilder<T, ID2, R>(repositoryType, idMapping);
+			return new MappingBuilder<>(repositoryType, idMapping);
 		}
 	}
 

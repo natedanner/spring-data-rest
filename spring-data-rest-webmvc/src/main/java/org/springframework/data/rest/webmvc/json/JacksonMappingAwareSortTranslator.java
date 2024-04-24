@@ -142,11 +142,11 @@ public class JacksonMappingAwareSortTranslator {
 			Assert.notNull(input, "Sort must not be null");
 			Assert.notNull(rootEntity, "PersistentEntity must not be null");
 
-			List<Order> filteredOrders = new ArrayList<Order>();
+			List<Order> filteredOrders = new ArrayList<>();
 
 			for (Order order : input) {
 
-				List<String> iteratorSource = new ArrayList<String>();
+				List<String> iteratorSource = new ArrayList<>();
 				Matcher matcher = SPLITTER.matcher("_" + order.getProperty());
 
 				while (matcher.find()) {
@@ -176,7 +176,7 @@ public class JacksonMappingAwareSortTranslator {
 
 		private List<String> mapPropertyPath(PersistentEntity<?, ?> rootEntity, List<String> iteratorSource) {
 
-			List<String> persistentPropertyPath = new ArrayList<String>(iteratorSource.size());
+			List<String> persistentPropertyPath = new ArrayList<>(iteratorSource.size());
 
 			TypedSegment typedSegment = TypedSegment.create(entities, objectMapper, rootEntity);
 
@@ -212,7 +212,7 @@ public class JacksonMappingAwareSortTranslator {
 	 *
 	 * @author Mark Paluch
 	 */
-	static class TypedSegment {
+	static final class TypedSegment {
 
 		private final PersistentEntities persistentEntities;
 		private final ObjectMapper objectMapper;
@@ -233,10 +233,10 @@ public class JacksonMappingAwareSortTranslator {
 			this.currentType = persistentEntity;
 			this.currentProperties = persistentEntity//
 					.map(it -> MappedProperties.forSerialization(it, objectMapper))//
-					.orElseGet(() -> MappedProperties.none());
+					.orElseGet(MappedProperties::none);
 			this.currentWrappedProperties = persistentEntity//
 					.map(it -> WrappedProperties.fromJacksonProperties(persistentEntities, it, objectMapper))//
-					.orElseGet(() -> WrappedProperties.none());
+					.orElseGet(WrappedProperties::none);
 
 		}
 

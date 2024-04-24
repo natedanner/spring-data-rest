@@ -43,13 +43,13 @@ class ProjectionProxyAotProcessor implements BeanRegistrationAotProcessor {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ProjectionProxyAotProcessor.class);
 
-	private static Class<?>[] ADDITIONAL_INTERFACES = new Class<?>[] { //
+	private static final Class<?>[] ADDITIONAL_INTERFACES = new Class<?>[]{ //
 			TargetAware.class, //
 			SpringProxy.class, //
 			DecoratingProxy.class
 	};
 
-	private Set<String> packagesSeen = new HashSet<>();
+	private final Set<String> packagesSeen = new HashSet<>();
 
 	@Override
 	public BeanRegistrationAotContribution processAheadOfTime(RegisteredBean registeredBean) {

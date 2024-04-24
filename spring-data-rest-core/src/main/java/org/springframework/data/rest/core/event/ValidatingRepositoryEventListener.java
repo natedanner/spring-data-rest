@@ -57,7 +57,7 @@ public class ValidatingRepositoryEventListener extends AbstractRepositoryEventLi
 		Assert.notNull(persistentEntitiesFactory, "PersistentEntities must not be null");
 
 		this.persistentEntitiesFactory = persistentEntitiesFactory;
-		this.validators = new LinkedMultiValueMap<String, Validator>();
+		this.validators = new LinkedMultiValueMap<>();
 	}
 
 	/**

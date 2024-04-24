@@ -92,13 +92,13 @@ class RepositoryPropertyReferenceControllerUnitTests {
 
 	@RestResource
 	static class Sample {
-		@org.springframework.data.annotation.Reference List<Reference> references = new ArrayList<Reference>();
+		@org.springframework.data.annotation.Reference List<Reference> references = new ArrayList<>();
 	}
 
 	@RestResource
 	static class Reference {}
 
-	static enum AllSupportedHttpMethods implements SupportedHttpMethods {
+	enum AllSupportedHttpMethods implements SupportedHttpMethods {
 
 		INSTANCE;
 

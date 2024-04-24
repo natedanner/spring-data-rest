@@ -35,7 +35,8 @@ import org.springframework.data.rest.core.annotation.RestResource;
 public class Person {
 
 	private final @Id UUID id;
-	private final String firstName, lastName;
+	private final String firstName;
+	private final String lastName;
 
 	public Person(String firstName, String lastName) {
 		this(UUID.randomUUID(), firstName, lastName);

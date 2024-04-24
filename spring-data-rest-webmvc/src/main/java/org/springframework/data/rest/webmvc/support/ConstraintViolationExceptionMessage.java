@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ConstraintViolationExceptionMessage {
 
 	private final ConstraintViolationException cve;
-	private final List<ConstraintViolationMessage> messages = new ArrayList<ConstraintViolationMessage>();
+	private final List<ConstraintViolationMessage> messages = new ArrayList<>();
 
 	public ConstraintViolationExceptionMessage(ConstraintViolationException cve, MessageSource msgSrc, Locale locale) {
 		this.cve = cve;

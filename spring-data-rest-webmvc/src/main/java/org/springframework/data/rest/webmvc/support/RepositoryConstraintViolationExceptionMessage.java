@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class RepositoryConstraintViolationExceptionMessage {
 
-	private final List<ValidationError> errors = new ArrayList<ValidationError>();
+	private final List<ValidationError> errors = new ArrayList<>();
 
 	/**
 	 * Creates a new {@link RepositoryConstraintViolationExceptionMessage} for the given

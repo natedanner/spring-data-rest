@@ -50,7 +50,7 @@ public class RepositoryRestConfiguration {
 
 	static final URI NO_URI = URI.create("");
 
-	private URI baseUri = NO_URI;
+	private final URI baseUri = NO_URI;
 	private URI basePath = NO_URI;
 	private int defaultPageSize = 20;
 	private int maxPageSize = 1000;
@@ -59,12 +59,12 @@ public class RepositoryRestConfiguration {
 	private String sortParamName = "sort";
 	private MediaType defaultMediaType = MediaTypes.HAL_JSON;
 	private boolean useHalAsDefaultJsonMediaType = true;
-	private Boolean returnBodyOnCreate = null;
-	private Boolean returnBodyOnUpdate = null;
-	private Boolean returnBodyOnDelete = null;
-	private List<Class<?>> exposeIdsFor = new ArrayList<Class<?>>();
-	private ResourceMappingConfiguration domainMappings = new ResourceMappingConfiguration();
-	private ResourceMappingConfiguration repoMappings = new ResourceMappingConfiguration();
+	private Boolean returnBodyOnCreate;
+	private Boolean returnBodyOnUpdate;
+	private Boolean returnBodyOnDelete;
+	private final List<Class<?>> exposeIdsFor = new ArrayList<>();
+	private final ResourceMappingConfiguration domainMappings = new ResourceMappingConfiguration();
+	private final ResourceMappingConfiguration repoMappings = new ResourceMappingConfiguration();
 	private RepositoryDetectionStrategy repositoryDetectionStrategy = RepositoryDetectionStrategies.DEFAULT;
 	private boolean exposeRepositoryMethodsByDefault = true;
 
@@ -76,7 +76,7 @@ public class RepositoryRestConfiguration {
 	private final EnumTranslationConfiguration enumTranslationConfiguration;
 
 	private LinkRelationProvider linkRelationProvider;
-	private boolean enableEnumTranslation = false;
+	private boolean enableEnumTranslation;
 
 	/**
 	 * Creates a new {@link RepositoryRestConfiguration} with the given {@link ProjectionDefinitionConfiguration}.

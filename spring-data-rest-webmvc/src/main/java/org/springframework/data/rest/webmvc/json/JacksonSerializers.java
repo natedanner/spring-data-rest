@@ -103,7 +103,7 @@ public class JacksonSerializers extends SimpleModule {
 		@Override
 		public JsonSchemaProperty customize(JsonSchemaProperty property, TypeInformation<?> type) {
 
-			List<String> values = new ArrayList<String>();
+			List<String> values = new ArrayList<>();
 
 			for (Object value : type.getType().getEnumConstants()) {
 				values.add(translator.asText((Enum<?>) value));

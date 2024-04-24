@@ -69,9 +69,8 @@ class BasePathAwareHandlerMappingUnitTests {
 	void rejectsAtRequestMappingOnCustomController() {
 
 		assertThatIllegalStateException()
-				.isThrownBy(() -> {
-					mapping.isHandler(InvalidController.class);
-				})
+				.isThrownBy(() ->
+					mapping.isHandler(InvalidController.class))
 				.withMessageContaining(InvalidController.class.getName());
 	}
 

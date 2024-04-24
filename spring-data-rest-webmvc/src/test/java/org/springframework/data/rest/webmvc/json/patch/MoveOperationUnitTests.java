@@ -27,7 +27,7 @@ class MoveOperationUnitTests {
 	@Test
 	void moveBooleanPropertyValue() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", true));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -44,7 +44,7 @@ class MoveOperationUnitTests {
 	@Test
 	void moveStringPropertyValue() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", true));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -58,7 +58,7 @@ class MoveOperationUnitTests {
 	@Test
 	void moveBooleanPropertyValueIntoStringProperty() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", true));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -83,7 +83,7 @@ class MoveOperationUnitTests {
 	@Test
 	void moveListElementToBeginningOfList() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 		todos.add(new Todo(2L, "B", true));
 		todos.add(new Todo(3L, "C", false));
@@ -100,7 +100,7 @@ class MoveOperationUnitTests {
 	@Test
 	void moveListElementToMiddleOfList() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", true));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -117,7 +117,7 @@ class MoveOperationUnitTests {
 	@Test
 	void moveListElementToEndOfList_usingIndex() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", true));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -134,13 +134,13 @@ class MoveOperationUnitTests {
 	@Test
 	void moveListElementToBeginningOfList_usingDash() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", true));
 		todos.add(new Todo(3L, "C", false));
 		todos.add(new Todo(4L, "E", false));
 		todos.add(new Todo(2L, "G", false));
 
-		List<Todo> expected = new ArrayList<Todo>();
+		List<Todo> expected = new ArrayList<>();
 		expected.add(new Todo(1L, "A", true));
 		expected.add(new Todo(2L, "G", false));
 		expected.add(new Todo(3L, "C", false));
@@ -155,13 +155,13 @@ class MoveOperationUnitTests {
 	@Test
 	void moveListElementToEndOfList_usingDash() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", true));
 		todos.add(new Todo(2L, "G", false));
 		todos.add(new Todo(3L, "C", false));
 		todos.add(new Todo(4L, "E", false));
 
-		List<Todo> expected = new ArrayList<Todo>();
+		List<Todo> expected = new ArrayList<>();
 		expected.add(new Todo(1L, "A", true));
 		expected.add(new Todo(3L, "C", false));
 		expected.add(new Todo(4L, "E", false));

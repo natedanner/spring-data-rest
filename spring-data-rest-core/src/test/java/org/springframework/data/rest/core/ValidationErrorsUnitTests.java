@@ -87,7 +87,7 @@ class ValidationErrorsUnitTests {
 
 	static class Foo {
 		List<Bar> bars = Collections.singletonList(new Bar());
-		Bar bar = null;
+		Bar bar;
 	}
 
 	static class Bar {

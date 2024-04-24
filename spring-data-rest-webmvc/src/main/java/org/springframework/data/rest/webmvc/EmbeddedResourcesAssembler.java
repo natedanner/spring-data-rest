@@ -67,7 +67,7 @@ public class EmbeddedResourcesAssembler {
 
 		PersistentEntity<?, ?> entity = entities.getRequiredPersistentEntity(instance.getClass());
 
-		final List<EmbeddedWrapper> associationProjections = new ArrayList<EmbeddedWrapper>();
+		final List<EmbeddedWrapper> associationProjections = new ArrayList<>();
 		final PersistentPropertyAccessor<?> accessor = entity.getPropertyAccessor(instance);
 		final ResourceMetadata metadata = associations.getMetadataFor(entity.getType());
 
@@ -99,7 +99,7 @@ public class EmbeddedResourcesAssembler {
 					return;
 				}
 
-				List<Object> nestedCollection = new ArrayList<Object>();
+				List<Object> nestedCollection = new ArrayList<>();
 
 				for (Object element : collection) {
 					if (element != null) {

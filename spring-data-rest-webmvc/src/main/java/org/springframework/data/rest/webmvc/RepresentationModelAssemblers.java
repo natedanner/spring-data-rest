@@ -135,8 +135,8 @@ public class RepresentationModelAssemblers {
 
 		var selfLink = ControllerUtils.getDefaultSelfLink();
 
-		return !entities.iterator().hasNext()
-				? CollectionModel.of(List.of(WRAPPERS.emptyCollectionOf(domainType)), selfLink)
-				: persistentEntityResourceAssembler.toCollectionModel(entities).add(selfLink);
+		return entities.iterator().hasNext()
+				? persistentEntityResourceAssembler.toCollectionModel(entities).add(selfLink)
+				: CollectionModel.of(List.of(WRAPPERS.emptyCollectionOf(domainType)), selfLink);
 	}
 }

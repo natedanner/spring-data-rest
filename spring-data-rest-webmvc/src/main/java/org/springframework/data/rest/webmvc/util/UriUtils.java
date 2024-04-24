@@ -31,7 +31,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  */
 public abstract class UriUtils {
 
-	private static AnnotationMappingDiscoverer DISCOVERER = new AnnotationMappingDiscoverer(RequestMapping.class);
+	private static final AnnotationMappingDiscoverer DISCOVERER = new AnnotationMappingDiscoverer(RequestMapping.class);
 
 	private UriUtils() {}
 

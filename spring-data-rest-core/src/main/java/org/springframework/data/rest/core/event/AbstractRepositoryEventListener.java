@@ -28,7 +28,7 @@ import org.springframework.context.ApplicationListener;
  */
 public abstract class AbstractRepositoryEventListener<T> implements ApplicationListener<RepositoryEvent> {
 
-	private final Class<?> INTERESTED_TYPE = resolveTypeArgument(getClass(), AbstractRepositoryEventListener.class);
+	private final Class<?> interestedType = resolveTypeArgument(getClass(), AbstractRepositoryEventListener.class);
 
 	@Override
 	@SuppressWarnings({ "unchecked" })
@@ -36,7 +36,7 @@ public abstract class AbstractRepositoryEventListener<T> implements ApplicationL
 
 		Class<?> srcType = event.getSource().getClass();
 
-		if (null != INTERESTED_TYPE && !INTERESTED_TYPE.isAssignableFrom(srcType)) {
+		if (null != interestedType && !interestedType.isAssignableFrom(srcType)) {
 			return;
 		}
 

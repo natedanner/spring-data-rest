@@ -31,7 +31,7 @@ import org.springframework.util.Assert;
  * @author Oliver Gierke
  * @since 3.1
  */
-public class ConfigurableHttpMethods implements HttpMethods {
+public final class ConfigurableHttpMethods implements HttpMethods {
 
 	public static final ConfigurableHttpMethods NONE = ConfigurableHttpMethods.of();
 	public static final ConfigurableHttpMethods ALL = ConfigurableHttpMethods.of(HttpMethod.values());

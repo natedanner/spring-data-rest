@@ -27,7 +27,7 @@ import java.util.Map;
 @SuppressWarnings("deprecation")
 public class ResourceMappingConfiguration {
 
-	private final Map<Class<?>, ResourceMapping> resourceMappings = new HashMap<Class<?>, ResourceMapping>();
+	private final Map<Class<?>, ResourceMapping> resourceMappings = new HashMap<>();
 
 	public ResourceMapping setResourceMappingFor(Class<?> type) {
 		ResourceMapping rm = resourceMappings.get(type);

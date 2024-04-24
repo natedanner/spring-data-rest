@@ -98,10 +98,9 @@ class StringToAggregateReferenceConverterUnitTests {
 		var result = converter.convert(source, TypeDescriptor.valueOf(String.class),
 				toTypeDescriptor(AssociationAggregateReference.class, Object.class, CustomIdentifier.class));
 
-		assertThat(result).isInstanceOfSatisfying(AssociationAggregateReference.class, it -> {
+		assertThat(result).isInstanceOfSatisfying(AssociationAggregateReference.class, it ->
 			assertThat(it.resolveAssociation()).isNotNull()
-					.extracting(Association::getId).isEqualTo(identifier);
-		});
+					.extracting(Association::getId).isEqualTo(identifier));
 	}
 
 	@Test // GH-2239

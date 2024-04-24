@@ -75,7 +75,8 @@ class RepositoryRestHandlerMappingUnitTests {
 	RepositoryRestConfiguration configuration;
 	Supplier<HandlerMappingStub> handlerMapping;
 	MockHttpServletRequest mockRequest;
-	Method listEntitiesMethod, rootHandlerMethod;
+	Method listEntitiesMethod;
+	Method rootHandlerMethod;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -277,9 +278,8 @@ class RepositoryRestHandlerMappingUnitTests {
 		handlerMapping.get().getHandlerInternal(mockRequest);
 
 		assertThat(mockRequest.getAttribute(RepositoryRestHandlerMapping.EFFECTIVE_LOOKUP_PATH_ATTRIBUTE)) //
-				.isInstanceOfSatisfying(PathPattern.class, it -> {
-					assertThat(it.getPatternString()).isEqualTo("/people/search/{search}");
-				});
+				.isInstanceOfSatisfying(PathPattern.class, it ->
+					assertThat(it.getPatternString()).isEqualTo("/people/search/{search}"));
 	}
 
 	@Test // DATAREST-1332

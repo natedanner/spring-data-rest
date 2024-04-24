@@ -40,14 +40,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @author Oliver Gierke
  * @author Dario Seidl
  */
-public class PersistentEntityResource extends EntityModel<Object> {
+public final class PersistentEntityResource extends EntityModel<Object> {
 
-	private static final Iterable<EmbeddedWrapper> NO_EMBEDDEDS = new NoLinksResources<EmbeddedWrapper>(
+	private static final Iterable<EmbeddedWrapper> NO_EMBEDDEDS = new NoLinksResources<>(
 			Collections.<EmbeddedWrapper> emptyList());
 
 	private final PersistentEntity<?, ?> entity;
 	private final Iterable<EmbeddedWrapper> embeddeds;
-	private final boolean isNew, nested;
+	private final boolean isNew;
+	private final boolean nested;
 
 	/**
 	 * Creates a new {@link PersistentEntityResource} for the given {@link PersistentEntity}, content, embedded
@@ -144,11 +145,11 @@ public class PersistentEntityResource extends EntityModel<Object> {
 	 *
 	 * @author Oliver Gierke
 	 */
-	public static class Builder {
+	public static final class Builder {
 
 		private final Object content;
 		private final PersistentEntity<?, ?> entity;
-		private final List<Link> links = new ArrayList<Link>();
+		private final List<Link> links = new ArrayList<>();
 
 		private Iterable<EmbeddedWrapper> embeddeds;
 

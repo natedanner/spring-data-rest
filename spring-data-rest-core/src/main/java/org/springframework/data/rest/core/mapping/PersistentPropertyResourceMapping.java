@@ -67,8 +67,8 @@ class PersistentPropertyResourceMapping implements PropertyAwareResourceMapping 
 	public LinkRelation getRel() {
 
 		return LinkRelation.of(annotation.filter(it -> StringUtils.hasText(it.rel())) //
-				.map(it -> it.rel()) //
-				.orElseGet(() -> property.getName()));
+				.map(RestResource::rel) //
+				.orElseGet(property::getName));
 	}
 
 	@Override
@@ -81,7 +81,7 @@ class PersistentPropertyResourceMapping implements PropertyAwareResourceMapping 
 		ResourceMapping typeMapping = mappings.getMetadataFor(property.getAssociationTargetType());
 
 		return typeMapping != null && typeMapping.isExported()
-				? annotation.map(it -> it.exported()).orElse(true)
+				? annotation.map(RestResource::exported).orElse(true)
 				: false;
 	}
 

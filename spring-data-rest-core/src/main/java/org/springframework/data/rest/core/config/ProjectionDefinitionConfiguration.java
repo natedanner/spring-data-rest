@@ -154,8 +154,8 @@ public class ProjectionDefinitionConfiguration implements ProjectionDefinitions 
 		Assert.notNull(sourceType, "Source type must not be null");
 
 		Class<?> userType = ProxyUtils.getUserClass(sourceType);
-		Map<String, ProjectionDefinition> byName = new HashMap<String, ProjectionDefinition>();
-		Map<String, Class<?>> result = new HashMap<String, Class<?>>();
+		Map<String, ProjectionDefinition> byName = new HashMap<>();
+		Map<String, Class<?>> result = new HashMap<>();
 
 		for (ProjectionDefinition entry : projectionDefinitions) {
 
@@ -185,7 +185,8 @@ public class ProjectionDefinitionConfiguration implements ProjectionDefinitions 
 	 */
 	static final class ProjectionDefinition {
 
-		private final Class<?> sourceType, targetType;
+		private final Class<?> sourceType;
+		private final Class<?> targetType;
 		private final String name;
 
 		private ProjectionDefinition(Class<?> sourceType, Class<?> targetType, String name) {

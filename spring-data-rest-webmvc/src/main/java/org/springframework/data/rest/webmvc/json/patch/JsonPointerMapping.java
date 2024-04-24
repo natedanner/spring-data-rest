@@ -29,7 +29,8 @@ import org.springframework.util.StringUtils;
  */
 class JsonPointerMapping {
 
-	private final BiFunction<String, Class<?>, Optional<String>> reader, writer;
+	private final BiFunction<String, Class<?>, Optional<String>> reader;
+	private final BiFunction<String, Class<?>, Optional<String>> writer;
 
 	public JsonPointerMapping(BindContext context) {
 
@@ -94,7 +95,7 @@ class JsonPointerMapping {
 				continue;
 			}
 
-			if (segment.equals("-") || segment.matches("\\d+")) {
+			if ("-".equals(segment) || segment.matches("\\d+")) {
 				result.append("/").append(segment);
 				currentType = currentType.getActualType();
 				continue;

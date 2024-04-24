@@ -112,7 +112,7 @@ class SpelPath {
 		return path.hashCode();
 	}
 
-	static class UntypedSpelPath extends SpelPath {
+	static final class UntypedSpelPath extends SpelPath {
 
 		private static final Map<CacheKey, TypedSpelPath> READ_PATHS = new ConcurrentReferenceHashMap<>(256);
 		private static final Map<CacheKey, TypedSpelPath> WRITE_PATHS = new ConcurrentReferenceHashMap<>(256);
@@ -228,7 +228,7 @@ class SpelPath {
 	 *
 	 * @author Oliver Gierke
 	 */
-	static class TypedSpelPath extends SpelPath implements ReadingOperations, WritingOperations {
+	static final class TypedSpelPath extends SpelPath implements ReadingOperations, WritingOperations {
 
 		private static final String INVALID_PATH_REFERENCE = "Invalid path reference %s on type %s";
 		private static final String INVALID_COLLECTION_INDEX = "Invalid collection index %s for collection of size %s; Use '…/-' or the collection's actual size as index to append to it";
@@ -475,7 +475,7 @@ class SpelPath {
 			String segmentSource = path.replaceAll("^/\\d+", "");
 
 			Stream<String> segments = Arrays.stream(segmentSource.split("/"))//
-					.filter(it -> !it.equals("-")) // no "last element"s
+					.filter(it -> !"-".equals(it)) // no "last element"s
 					.filter(it -> !it.isEmpty());
 
 			try {
@@ -562,7 +562,7 @@ class SpelPath {
 					.reduce(Optional.<SpelExpressionBuilder> empty(), //
 							(current, next) -> Optional.of(nextOrCreate(current, next, type)), //
 							(l, r) -> r) //
-					.map(it -> it.getExpression()) //
+					.map(SpelPath.TypedSpelPath.SpelExpressionBuilder::getExpression) //
 					.orElse("#this");
 
 			return SPEL_EXPRESSION_PARSER.parseExpression(expression);

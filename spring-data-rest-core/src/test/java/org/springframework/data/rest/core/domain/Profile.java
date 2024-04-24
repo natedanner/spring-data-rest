@@ -26,7 +26,8 @@ import org.springframework.data.annotation.Id;
 public class Profile {
 
 	@Id private final UUID id = UUID.randomUUID();
-	private final String name, type;
+	private final String name;
+	private final String type;
 
 	public Profile(String name, String type) {
 		this.name = name;

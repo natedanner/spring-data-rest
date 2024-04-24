@@ -35,7 +35,7 @@ import org.springframework.web.context.request.NativeWebRequest;
  * @author Oliver Gierke
  * @since 2.6
  */
-public class DomainClassResolver {
+public final class DomainClassResolver {
 
 	private final Repositories repositories;
 	private final ResourceMappings mappings;

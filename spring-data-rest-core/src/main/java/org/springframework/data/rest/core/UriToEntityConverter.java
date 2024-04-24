@@ -24,6 +24,7 @@ import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.convert.converter.GenericConverter;
+import org.springframework.data.mapping.PersistentEntity;
 import org.springframework.data.mapping.context.PersistentEntities;
 import org.springframework.data.repository.support.Repositories;
 import org.springframework.data.repository.support.RepositoryInvokerFactory;
@@ -66,7 +67,7 @@ public class UriToEntityConverter implements GenericConverter {
 		Assert.notNull(invokerFactory, "RepositoryInvokerFactory must not be null");
 		Assert.notNull(conversionService, "ConversionService must not be null!");
 
-		this.convertiblePairs = new HashSet<ConvertiblePair>();
+		this.convertiblePairs = new HashSet<>();
 		this.identifierTypes = new HashSet<>();
 
 		for (TypeInformation<?> domainType : entities.getManagedTypes()) {
@@ -74,7 +75,7 @@ public class UriToEntityConverter implements GenericConverter {
 			var rawType = domainType.getType();
 			var entity = entities.getPersistentEntity(rawType);
 
-			entity.filter(it -> it.hasIdProperty()).ifPresent(it -> {
+			entity.filter(PersistentEntity::hasIdProperty).ifPresent(it -> {
 				convertiblePairs.add(new ConvertiblePair(URI.class, domainType.getType()));
 				registerIdentifierType(it.getRequiredIdProperty().getType());
 			});

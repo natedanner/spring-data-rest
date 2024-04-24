@@ -346,7 +346,7 @@ public class RepositoryEntityLinks extends AbstractEntityLinks {
 	 */
 	private TemplateVariables getParameterVariables(MethodResourceMapping mapping) {
 
-		List<TemplateVariable> variables = new ArrayList<TemplateVariable>();
+		List<TemplateVariable> variables = new ArrayList<>();
 
 		for (ParameterMetadata metadata : mapping.getParametersMetadata()) {
 			variables.add(new TemplateVariable(metadata.getName(), VariableType.REQUEST_PARAM));

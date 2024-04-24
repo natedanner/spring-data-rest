@@ -85,7 +85,8 @@ class ProjectionJacksonIntegrationTests {
 	}
 
 	static class Customer {
-		String firstname, lastname;
+		String firstname;
+		String lastname;
 		Address address;
 	}
 

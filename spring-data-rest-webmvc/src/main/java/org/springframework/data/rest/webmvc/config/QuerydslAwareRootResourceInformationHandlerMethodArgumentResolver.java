@@ -81,8 +81,8 @@ class QuerydslAwareRootResourceInformationHandlerMethodArgumentResolver
 		}
 
 		return repositories.getRepositoryFor(domainType)//
-				.filter(it -> QuerydslPredicateExecutor.class.isInstance(it))//
-				.map(it -> QuerydslPredicateExecutor.class.cast(it))//
+				.filter(QuerydslPredicateExecutor.class::isInstance)//
+				.map(QuerydslPredicateExecutor.class::cast)//
 				.flatMap(it -> getRepositoryAndPredicate(it, domainType, parameters))//
 				.map(it -> getQuerydslAdapter(invoker, it.getFirst(), it.getSecond()))//
 				.orElse(invoker);
@@ -113,7 +113,7 @@ class QuerydslAwareRootResourceInformationHandlerMethodArgumentResolver
 	 */
 	private static MultiValueMap<String, String> toMultiValueMap(Map<String, String[]> source) {
 
-		MultiValueMap<String, String> result = new LinkedMultiValueMap<String, String>();
+		MultiValueMap<String, String> result = new LinkedMultiValueMap<>();
 
 		for (Entry<String, String[]> entry : source.entrySet()) {
 			result.put(entry.getKey(), Arrays.asList(entry.getValue()));

@@ -168,7 +168,7 @@ public class EnumTranslator implements EnumTranslationConfiguration {
 	 * @since 3.2
 	 * @soundtrack Dave Matthews Band - #41 [4.20.02] (Best of What's Around – Encore Vol. 1)
 	 */
-	private static class TranslatedEnum implements MessageSourceResolvable {
+	private static final class TranslatedEnum implements MessageSourceResolvable {
 
 		private final Enum<?> value;
 		private final boolean withDefaultTranslation;

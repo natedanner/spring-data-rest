@@ -43,7 +43,7 @@ class JsonPatchUnitTests {
 	@Test
 	void manySuccessfulOperations() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", true));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -65,7 +65,7 @@ class JsonPatchUnitTests {
 	@Test
 	void failureAtBeginning() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", true));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -89,7 +89,7 @@ class JsonPatchUnitTests {
 	@Test
 	void failureInMiddle() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", true));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -146,23 +146,20 @@ class JsonPatchUnitTests {
 				.isThrownBy(() -> patch.apply(todo, Todo.class)) //
 				.withMessageContaining("content") //
 				.withMessageContaining("blabla") //
-				.withMessageContaining(String.class.getName().toString());
+				.withMessageContaining(String.class.getName());
 	}
 
 	@Test // DATAREST-1127
 	void rejectsInvalidPaths() {
 
-		assertThatExceptionOfType(PatchException.class).isThrownBy(() -> {
-			readJsonPatch("patch-invalid-path.json").apply(new Todo(), Todo.class);
-		});
+		assertThatExceptionOfType(PatchException.class).isThrownBy(() ->
+			readJsonPatch("patch-invalid-path.json").apply(new Todo(), Todo.class));
 	}
 
 	private Patch readJsonPatch(String jsonPatchFile) throws IOException, JsonParseException, JsonMappingException {
 
 		ClassPathResource resource = new ClassPathResource(jsonPatchFile, getClass());
 		JsonNode node = new ObjectMapper().readValue(resource.getInputStream(), JsonNode.class);
-		Patch patch = new JsonPatchPatchConverter(new ObjectMapper(), TestPropertyPathContext.INSTANCE).convert(node);
-
-		return patch;
+		return new JsonPatchPatchConverter(new ObjectMapper(), TestPropertyPathContext.INSTANCE).convert(node);
 	}
 }

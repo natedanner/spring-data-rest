@@ -50,7 +50,7 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 @JsonInclude(Include.NON_EMPTY)
 public class JsonSchema {
 
-	private static List<Class<?>> INTEGER_TYPES = Arrays.<Class<?>> asList(Long.class, long.class, Integer.class,
+	private static List<Class<?>> integerTypes = Arrays. asList(Long.class, long.class, Integer.class,
 			int.class, Short.class, short.class);
 
 	private final String title;
@@ -127,7 +127,7 @@ public class JsonSchema {
 			return "boolean";
 		} else if (String.class.equals(type) || isDate(typeInformation) || type.isEnum()) {
 			return "string";
-		} else if (INTEGER_TYPES.contains(type)) {
+		} else if (integerTypes.contains(type)) {
 			return "integer";
 		} else if (ClassUtils.isAssignable(Number.class, type)) {
 			return "number";
@@ -212,8 +212,8 @@ public class JsonSchema {
 
 			Assert.notNull(properties, "JsonSchemaPropertys must not be null");
 
-			this.properties = new HashMap<String, JsonSchema.AbstractJsonSchemaProperty<?>>();
-			this.requiredProperties = new ArrayList<String>();
+			this.properties = new HashMap<>();
+			this.requiredProperties = new ArrayList<>();
 
 			for (AbstractJsonSchemaProperty<?> property : properties) {
 				this.properties.put(property.getName(), property);
@@ -235,7 +235,7 @@ public class JsonSchema {
 		private final Map<String, Item> definitions;
 
 		public Definitions() {
-			this.definitions = new HashMap<String, Item>();
+			this.definitions = new HashMap<>();
 		}
 
 		/**
@@ -498,7 +498,7 @@ public class JsonSchema {
 
 		private static List<String> toValues(Class<?> type) {
 
-			List<String> values = new ArrayList<String>();
+			List<String> values = new ArrayList<>();
 
 			for (Object value : type.getEnumConstants()) {
 				values.add(value.toString());

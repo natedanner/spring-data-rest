@@ -74,7 +74,7 @@ public class PersistentEntityToJsonSchemaConverter implements ConditionalGeneric
 	private static final TypeDescriptor SCHEMA_TYPE = TypeDescriptor.valueOf(JsonSchema.class);
 	private static final TypeInformation<?> STRING_TYPE_INFORMATION = ClassTypeInformation.from(String.class);
 
-	private final Set<ConvertiblePair> convertiblePairs = new HashSet<ConvertiblePair>();
+	private final Set<ConvertiblePair> convertiblePairs = new HashSet<>();
 	private final Associations associations;
 	private final PersistentEntities entities;
 	private final ObjectMapper objectMapper;
@@ -286,7 +286,7 @@ public class PersistentEntityToJsonSchemaConverter implements ConditionalGeneric
 		public JsonSchemaPropertyRegistrar(JacksonMetadata metadata) {
 			Assert.notNull(metadata, "Metadata must not be null");
 			this.metadata = metadata;
-			this.properties = new ArrayList<AbstractJsonSchemaProperty<?>>();
+			this.properties = new ArrayList<>();
 		}
 
 		public void register(JsonSchemaProperty property, TypeInformation<?> type) {
@@ -329,7 +329,7 @@ public class PersistentEntityToJsonSchemaConverter implements ConditionalGeneric
 				@Override
 				public JsonSchemaProperty customize(JsonSchemaProperty property, TypeInformation<?> type) {
 
-					List<String> result = new ArrayList<String>();
+					List<String> result = new ArrayList<>();
 
 					for (Object element : factory.getInvokerFor(type.getType()).invokeFindAll((Sort) null)) {
 						result.add(element.toString());
@@ -433,7 +433,7 @@ public class PersistentEntityToJsonSchemaConverter implements ConditionalGeneric
 
 			boolean isSyntheticProperty = !property.isPresent();
 			boolean isNotWritable = property.map(it -> !it.isWritable()).orElse(false);
-			boolean isJacksonReadOnly = property.map(it -> metadata.isReadOnly(it)).orElse(false);
+			boolean isJacksonReadOnly = property.map(metadata::isReadOnly).orElse(false);
 
 			if (isSyntheticProperty || isNotWritable || isJacksonReadOnly) {
 				result = result.withReadOnly();

@@ -263,12 +263,9 @@ public class RepositoryRestMvcConfiguration extends HateoasAwareSpringDataWebCon
 		this.repositoryInvokerFactory = Lazy.of(() -> new UnwrappingRepositoryInvokerFactory(
 				new DefaultRepositoryInvokerFactory(repositories.get(), defaultConversionService), getEntityLookups()));
 
-		this.configurerDelegate = Lazy.of(() -> {
-
-			return new RepositoryRestConfigurerDelegate(context.getBeanProvider(RepositoryRestConfigurer.class)
+		this.configurerDelegate = Lazy.of(() -> new RepositoryRestConfigurerDelegate(context.getBeanProvider(RepositoryRestConfigurer.class)
 					.orderedStream()
-					.collect(Collectors.toList()));
-		});
+					.collect(Collectors.toList())));
 
 		this.repositoryRestConfiguration = Lazy.of(() -> context.getBean(RepositoryRestConfiguration.class));
 		this.pageableResolver = Lazy.of(() -> context.getBean(HateoasPageableHandlerMethodArgumentResolver.class));

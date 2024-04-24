@@ -70,7 +70,7 @@ public class BasePathAwareHandlerMapping extends RequestMappingHandlerMapping {
 	@Override
 	protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletRequest request) throws Exception {
 
-		List<MediaType> mediaTypes = new ArrayList<MediaType>();
+		List<MediaType> mediaTypes = new ArrayList<>();
 		boolean defaultFound = false;
 
 		for (MediaType mediaType : MediaType.parseMediaTypes(request.getHeader(HttpHeaders.ACCEPT))) {
@@ -205,7 +205,7 @@ public class BasePathAwareHandlerMapping extends RequestMappingHandlerMapping {
 
 			this.acceptMediaTypes = acceptMediaTypes;
 
-			List<String> acceptMediaTypeStrings = new ArrayList<String>(acceptMediaTypes.size());
+			List<String> acceptMediaTypeStrings = new ArrayList<>(acceptMediaTypes.size());
 
 			for (MediaType mediaType : acceptMediaTypes) {
 				acceptMediaTypeStrings.add(mediaType.toString());

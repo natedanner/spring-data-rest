@@ -27,7 +27,7 @@ class TestOperationUnitTests {
 	@Test
 	void testPropertyValueEquals() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 		todos.add(new Todo(2L, "B", true));
 		todos.add(new Todo(3L, "C", false));
@@ -43,7 +43,7 @@ class TestOperationUnitTests {
 	@Test
 	void testPropertyValueNotEquals() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 		todos.add(new Todo(2L, "B", true));
 		todos.add(new Todo(3L, "C", false));
@@ -57,7 +57,7 @@ class TestOperationUnitTests {
 	@Test
 	void testListElementEquals() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 		todos.add(new Todo(2L, "B", true));
 		todos.add(new Todo(3L, "C", false));

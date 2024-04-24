@@ -40,7 +40,7 @@ public class ControllerUtils {
 			hdrs.putAll(headers);
 		}
 
-		return new ResponseEntity<RepresentationModel<?>>(resource.orElse(null), hdrs, status);
+		return new ResponseEntity<>(resource.orElse(null), hdrs, status);
 	}
 
 	/**

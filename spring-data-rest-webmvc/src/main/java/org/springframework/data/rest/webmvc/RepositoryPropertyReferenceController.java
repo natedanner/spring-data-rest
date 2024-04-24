@@ -264,7 +264,7 @@ class RepositoryPropertyReferenceController /*extends AbstractRepositoryRestCont
 
 				Map<LinkRelation, Object> map = AUGMENTING_METHODS.contains(requestMethod) //
 						? (Map<LinkRelation, Object>) prop.propertyValue //
-						: CollectionFactory.<LinkRelation, Object> createMap(propertyType, 0);
+						: CollectionFactory. createMap(propertyType, 0);
 
 				// Add to the existing collection
 				for (Link l2 : source.getLinks()) {
@@ -321,7 +321,7 @@ class RepositoryPropertyReferenceController /*extends AbstractRepositoryRestCont
 
 					Optional.ofNullable(prop.entity.getIdentifierAccessor(obj).getIdentifier())//
 							.map(Object::toString)//
-							.filter(id -> propertyId.equals(id))//
+							.filter(propertyId::equals)//
 							.ifPresent(__ -> iterator.remove());
 				}
 
@@ -336,7 +336,7 @@ class RepositoryPropertyReferenceController /*extends AbstractRepositoryRestCont
 
 					Optional.ofNullable(prop.entity.getIdentifierAccessor(m.get(key)).getIdentifier())//
 							.map(Object::toString)//
-							.filter(id -> propertyId.equals(id))//
+							.filter(propertyId::equals)//
 							.ifPresent(__ -> iterator.remove());
 				}
 
@@ -392,7 +392,7 @@ class RepositoryPropertyReferenceController /*extends AbstractRepositoryRestCont
 		});
 	}
 
-	private class ReferencedProperty {
+	private final class ReferencedProperty {
 
 		final PersistentEntity<?, ?> entity;
 		final PersistentProperty<?> property;
@@ -448,7 +448,7 @@ class RepositoryPropertyReferenceController /*extends AbstractRepositoryRestCont
 		}
 	}
 
-	static class HttpRequestMethodNotSupportedException extends RuntimeException {
+	static final class HttpRequestMethodNotSupportedException extends RuntimeException {
 
 		private static final long serialVersionUID = 3704212056962845475L;
 

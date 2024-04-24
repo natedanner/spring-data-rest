@@ -76,7 +76,7 @@ class RepositoryConstraintViolationExceptionMessageUnitTests {
 
 	private void assertRejectedValue(String key, Object value) {
 
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> map = new HashMap<>();
 		map.put(key, value);
 
 		Errors errors = new MapBindingResult(map, "object");

@@ -91,9 +91,8 @@ class AssociationLinksUnitTests {
 	@Test // DATAREST-262
 	void rejectsNullPropertyForIsLinkable() {
 
-		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-			links.isLinkableAssociation((PersistentProperty<?>) null);
-		});
+		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() ->
+			links.isLinkableAssociation((PersistentProperty<?>) null));
 	}
 
 	@Test // DATAREST-262

@@ -33,7 +33,7 @@ import org.springframework.util.Assert;
  * @author Craig Walls
  * @author Oliver Gierke
  */
-class MoveOperation extends PatchOperation {
+final class MoveOperation extends PatchOperation {
 
 	private final UntypedSpelPath from;
 
@@ -54,7 +54,7 @@ class MoveOperation extends PatchOperation {
 		return new MoveOperationBuilder(from);
 	}
 
-	static class MoveOperationBuilder {
+	static final class MoveOperationBuilder {
 
 		private final String from;
 

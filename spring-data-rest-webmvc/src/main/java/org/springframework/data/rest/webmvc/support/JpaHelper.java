@@ -18,7 +18,7 @@ import org.springframework.web.context.request.WebRequestInterceptor;
  */
 public class JpaHelper implements BeanFactoryAware {
 
-	private List<WebRequestInterceptor> interceptor = new ArrayList<WebRequestInterceptor>();
+	private final List<WebRequestInterceptor> interceptor = new ArrayList<>();
 
 	@Override
 	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {

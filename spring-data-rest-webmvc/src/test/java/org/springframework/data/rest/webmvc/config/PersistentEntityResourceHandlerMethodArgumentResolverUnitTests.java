@@ -92,9 +92,8 @@ class PersistentEntityResourceHandlerMethodArgumentResolverUnitTests {
 
 		Object result = argumentResolver.resolveArgument(null, null, new ServletWebRequest(request), null);
 
-		assertThat(result).isInstanceOfSatisfying(PersistentEntityResource.class, it -> {
-			assertThat(it.getContent()).isInstanceOfSatisfying(Foo.class, foo -> assertThat(foo.id).isEqualTo(4711L));
-		});
+		assertThat(result).isInstanceOfSatisfying(PersistentEntityResource.class, it ->
+			assertThat(it.getContent()).isInstanceOfSatisfying(Foo.class, foo -> assertThat(foo.id).isEqualTo(4711L)));
 	}
 
 	@Test // DATAREST-1304
@@ -116,11 +115,10 @@ class PersistentEntityResourceHandlerMethodArgumentResolverUnitTests {
 
 		Object result = argumentResolver.resolveArgument(null, null, new ServletWebRequest(request), null);
 
-		assertThat(result).isInstanceOfSatisfying(PersistentEntityResource.class, it -> {
+		assertThat(result).isInstanceOfSatisfying(PersistentEntityResource.class, it ->
 			assertThat(it.getContent()).isInstanceOfSatisfying(Foo.class, foo -> {
 				assertThat(foo.name).isEqualTo("someName");
-			});
-		});
+			}));
 	}
 
 	private void setupRootResourceInfoFor(Class<?> type) throws Exception {

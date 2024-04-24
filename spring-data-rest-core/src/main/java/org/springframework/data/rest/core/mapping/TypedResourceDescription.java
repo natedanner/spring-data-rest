@@ -29,7 +29,7 @@ import org.springframework.util.StringUtils;
  *
  * @author Oliver Gierke
  */
-public class TypedResourceDescription extends SimpleResourceDescription {
+public final class TypedResourceDescription extends SimpleResourceDescription {
 
 	private final Class<?> type;
 

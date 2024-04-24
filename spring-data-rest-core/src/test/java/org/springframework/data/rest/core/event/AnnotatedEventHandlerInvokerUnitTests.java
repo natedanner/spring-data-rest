@@ -153,7 +153,7 @@ class AnnotatedEventHandlerInvokerUnitTests {
 	@RepositoryEventHandler
 	static class SampleWithPrivateHandler {
 
-		boolean wasCalled = false;
+		boolean wasCalled;
 
 		@HandleBeforeCreate
 		private void method(Person sample) {
@@ -164,7 +164,7 @@ class AnnotatedEventHandlerInvokerUnitTests {
 	@RepositoryEventHandler
 	static class SampleOrderEventHandler1 {
 
-		boolean wasCalled = false;
+		boolean wasCalled;
 		long timestamp;
 
 		@Order(2)
@@ -178,7 +178,7 @@ class AnnotatedEventHandlerInvokerUnitTests {
 	@RepositoryEventHandler
 	static class SampleOrderEventHandler2 {
 
-		boolean wasCalled = false;
+		boolean wasCalled;
 		long timestamp;
 
 		@Order(1)
@@ -192,7 +192,7 @@ class AnnotatedEventHandlerInvokerUnitTests {
 	// DATAREST-983
 
 	static class AbstractBaseEntityEventHandler<T extends BaseEntity> {
-		int callCount = 0;
+		int callCount;
 
 		@HandleBeforeCreate
 		private void method(T entity) {
@@ -206,7 +206,7 @@ class AnnotatedEventHandlerInvokerUnitTests {
 	@RepositoryEventHandler
 	static class SecondEventHandler extends AbstractBaseEntityEventHandler<SecondEntity> {}
 
-	static abstract class BaseEntity {}
+	abstract static class BaseEntity {}
 
 	static class FirstEntity extends BaseEntity {}
 

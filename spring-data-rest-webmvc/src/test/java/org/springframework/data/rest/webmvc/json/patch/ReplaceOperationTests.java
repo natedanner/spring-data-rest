@@ -32,7 +32,7 @@ class ReplaceOperationTests {
 	@Test
 	void replaceBooleanPropertyValue() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -46,7 +46,7 @@ class ReplaceOperationTests {
 	@Test
 	void replaceTextPropertyValue() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -60,7 +60,7 @@ class ReplaceOperationTests {
 	@Test
 	void replaceTextPropertyValueWithANumber() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -83,7 +83,7 @@ class ReplaceOperationTests {
 
 		assertThat(todo.getType()).isNotNull();
 		assertThat(todo.getType().getValue()).isNotNull();
-		assertThat(todo.getType().getValue().equals("new")).isTrue();
+		assertThat("new".equals(todo.getType().getValue())).isTrue();
 	}
 
 	@Test // DATAREST-1338

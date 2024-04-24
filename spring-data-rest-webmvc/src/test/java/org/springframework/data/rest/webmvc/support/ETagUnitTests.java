@@ -73,9 +73,8 @@ class ETagUnitTests {
 	@Test // DATAREST-160
 	void returnsNoEtagForNullPersistentEntityResourceSource() {
 
-		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-			ETag.from((PersistentEntityResource) null);
-		});
+		assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() ->
+			ETag.from((PersistentEntityResource) null));
 	}
 
 	@Test // DATAREST-160

@@ -30,7 +30,7 @@ class AddOperationUnitTests {
 	@Test
 	void addBooleanPropertyValue() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -44,7 +44,7 @@ class AddOperationUnitTests {
 	@Test
 	void addStringPropertyValue() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -58,7 +58,7 @@ class AddOperationUnitTests {
 	@Test
 	void addItemToList() throws Exception {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 		todos.add(new Todo(2L, "B", false));
 		todos.add(new Todo(3L, "C", false));
@@ -114,7 +114,7 @@ class AddOperationUnitTests {
 	@Test // DATAREST-1273
 	void addsItemToTheEndOfACollectionViaIndex() {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 
 		Todo todo = new Todo(2L, "B", true);
@@ -126,7 +126,7 @@ class AddOperationUnitTests {
 	@Test // DATAREST-1273
 	void rejectsAdditionBeyondEndOfList() {
 
-		List<Todo> todos = new ArrayList<Todo>();
+		List<Todo> todos = new ArrayList<>();
 		todos.add(new Todo(1L, "A", false));
 
 		assertThatExceptionOfType(PatchException.class) //

@@ -45,7 +45,10 @@ import org.springframework.web.servlet.handler.RequestMatchResult;
 @ExtendWith(MockitoExtension.class)
 class DelegatingHandlerMappingUnitTests {
 
-	@Mock HandlerMapping first, second;
+	@Mock
+	HandlerMapping first;
+	@Mock
+	HandlerMapping second;
 	@Mock HttpServletRequest request;
 
 	@Test // DATAREST-490, DATAREST-522, DATAREST-1387

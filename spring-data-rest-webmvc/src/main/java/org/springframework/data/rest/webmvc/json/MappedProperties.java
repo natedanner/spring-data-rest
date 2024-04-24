@@ -45,7 +45,7 @@ import com.fasterxml.jackson.databind.introspect.ClassIntrospector;
  * @author Mark Paluch
  * @author Mathias Düsterhöft
  */
-class MappedProperties {
+final class MappedProperties {
 
 	private final Map<PersistentProperty<?>, BeanPropertyDefinition> propertyToFieldName;
 	private final Map<String, PersistentProperty<?>> fieldNameToProperty;
@@ -205,7 +205,7 @@ class MappedProperties {
 			return Collections.emptySet();
 		}
 
-		List<String> result = new ArrayList<String>(unmappedProperties.size());
+		List<String> result = new ArrayList<>(unmappedProperties.size());
 
 		for (BeanPropertyDefinition definitions : unmappedProperties) {
 			result.add(definitions.getInternalName());

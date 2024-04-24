@@ -166,7 +166,7 @@ public final class ETag {
 		PersistentPropertyAccessor<?> accessor = entity.getPropertyAccessor(bean);
 
 		return Optional.ofNullable(entity.getVersionProperty())//
-				.map(it -> accessor.getProperty(it))//
+				.map(accessor::getProperty)//
 				.map(Object::toString);
 	}
 

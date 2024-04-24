@@ -24,7 +24,7 @@ import org.springframework.data.rest.webmvc.json.patch.SpelPath.UntypedSpelPath;
  * @author Craig Walls
  * @author Oliver Gierke
  */
-class ReplaceOperation extends PatchOperation {
+final class ReplaceOperation extends PatchOperation {
 	/**
 	 * Constructs the replace operation
 	 *
@@ -39,7 +39,7 @@ class ReplaceOperation extends PatchOperation {
 		return new ReplaceOperationBuilder(path);
 	}
 
-	static class ReplaceOperationBuilder {
+	static final class ReplaceOperationBuilder {
 		private final String path;
 
 		public ReplaceOperation with(Object value) {

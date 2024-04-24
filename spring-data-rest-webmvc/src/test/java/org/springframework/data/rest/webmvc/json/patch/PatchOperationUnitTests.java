@@ -48,7 +48,7 @@ class PatchOperationUnitTests {
 				MoveOperation.from(invalidPath).to(validPath), //
 				MoveOperation.from(validPath).to(invalidPath) //
 
-		), it -> it.toString(), it -> {
+		), java.lang.Object::toString, it -> {
 
 			Todo todo = new Todo(1L, "A", false);
 

@@ -63,8 +63,7 @@ class RepositoryRestConfigurationIntegrationTests extends AbstractIntegrationTes
 
 		PluginRegistry<EntityLookup<?>, Class<?>> lookups = PluginRegistry.of(config.getEntityLookups(repositories));
 
-		assertThat(lookups.getPluginFor(Profile.class)).hasValueSatisfying(it -> {
-			assertThat(it.getLookupProperty()).hasValue("name");
-		});
+		assertThat(lookups.getPluginFor(Profile.class)).hasValueSatisfying(it ->
+			assertThat(it.getLookupProperty()).hasValue("name"));
 	}
 }

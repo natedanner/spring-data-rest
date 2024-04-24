@@ -147,7 +147,7 @@ class EnumTranslatorUnitTests {
 		assertThat(configuration.fromText(MyEnum.class, "SECOND_VALUE")).isNull();
 	}
 
-	static enum MyEnum {
-		FIRST_VALUE, SECOND_VALUE;
+	enum MyEnum {
+		FIRST_VALUE, SECOND_VALUE
 	}
 }

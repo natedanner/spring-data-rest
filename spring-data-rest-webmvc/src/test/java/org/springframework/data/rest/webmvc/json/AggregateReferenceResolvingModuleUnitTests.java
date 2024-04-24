@@ -53,9 +53,8 @@ class AggregateReferenceResolvingModuleUnitTests {
 				.addMixIn(SomeType.class, SomeTypeMixin.class)
 				.registerModule(new AggregateReferenceResolvingModule(uriToEntityConverter, mappings));
 
-		assertThatNoException().isThrownBy(() -> {
-			mapper.readValue("{}", SomeType.class);
-		});
+		assertThatNoException().isThrownBy(() ->
+			mapper.readValue("{}", SomeType.class));
 	}
 
 	public static class SomeType {

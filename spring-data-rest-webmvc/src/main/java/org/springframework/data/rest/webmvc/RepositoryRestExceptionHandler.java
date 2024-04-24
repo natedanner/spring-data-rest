@@ -185,6 +185,6 @@ public class RepositoryRestExceptionHandler {
 		Assert.notNull(headers, "Headers must not be null");
 		Assert.notNull(status, "HttpStatus must not be null");
 
-		return new ResponseEntity<T>(body, headers, status);
+		return new ResponseEntity<>(body, headers, status);
 	}
 }

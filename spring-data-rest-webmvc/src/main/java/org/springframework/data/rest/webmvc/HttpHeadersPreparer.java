@@ -123,9 +123,9 @@ public class HttpHeadersPreparer {
 	private Optional<Long> getLastModifiedInMilliseconds(Object object) {
 
 		return getAuditableBeanWrapper(object)//
-				.flatMap(it -> it.getLastModifiedDate())//
+				.flatMap(AuditableBeanWrapper::getLastModifiedDate)//
 				.map(it -> conversionService.convert(it, Date.class))//
 				.map(it -> conversionService.convert(it, Instant.class))//
-				.map(it -> it.toEpochMilli());
+				.map(Instant::toEpochMilli);
 	}
 }

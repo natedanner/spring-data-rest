@@ -34,7 +34,7 @@ import org.springframework.util.ObjectUtils;
  * @author Craig Walls
  * @author Oliver Gierke
  */
-class TestOperation extends PatchOperation {
+final class TestOperation extends PatchOperation {
 
 	/**
 	 * Constructs the test operation
@@ -50,7 +50,7 @@ class TestOperation extends PatchOperation {
 		return new TestOperationBuilder(path);
 	}
 
-	static class TestOperationBuilder {
+	static final class TestOperationBuilder {
 
 		private final String path;
 

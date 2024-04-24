@@ -115,7 +115,7 @@ public class RootResourceInformationToAlpsDescriptorConverter {
 	public Alps convert(RootResourceInformation resourceInformation) {
 
 		Class<?> type = resourceInformation.getDomainType();
-		List<Descriptor> descriptors = new ArrayList<Descriptor>();
+		List<Descriptor> descriptors = new ArrayList<>();
 
 		Descriptor representationDescriptor = buildRepresentationDescriptor(type);
 
@@ -161,7 +161,7 @@ public class RootResourceInformationToAlpsDescriptorConverter {
 
 		ResourceMetadata metadata = associations.getMetadataFor(type);
 
-		List<Descriptor> nestedDescriptors = new ArrayList<Descriptor>();
+		List<Descriptor> nestedDescriptors = new ArrayList<>();
 		nestedDescriptors.addAll(getPaginationDescriptors(type, method));
 		nestedDescriptors.addAll(getProjectionDescriptor(type, method));
 
@@ -187,7 +187,7 @@ public class RootResourceInformationToAlpsDescriptorConverter {
 		String projectionParameterName = projectionConfiguration.getParameterName();
 
 		Map<String, Class<?>> projections = projectionConfiguration.getProjectionsFor(metadata.getDomainType());
-		List<Descriptor> projectionDescriptors = new ArrayList<Descriptor>(projections.size());
+		List<Descriptor> projectionDescriptors = new ArrayList<>(projections.size());
 
 		for (Entry<String, Class<?>> projection : projections.entrySet()) {
 
@@ -214,7 +214,7 @@ public class RootResourceInformationToAlpsDescriptorConverter {
 
 	private List<Descriptor> createJacksonDescriptor(String name, Class<?> type) {
 
-		List<Descriptor> descriptors = new ArrayList<Descriptor>();
+		List<Descriptor> descriptors = new ArrayList<>();
 
 		for (BeanPropertyDefinition definition : new JacksonMetadata(mapper, type)) {
 
@@ -262,7 +262,7 @@ public class RootResourceInformationToAlpsDescriptorConverter {
 
 		return projectionConfiguration.hasProjectionFor(type)
 				? Arrays.asList(buildProjectionDescriptor(associations.getMetadataFor(type)))
-				: Collections.<Descriptor> emptyList();
+				: Collections. emptyList();
 	}
 
 	/**
@@ -281,7 +281,7 @@ public class RootResourceInformationToAlpsDescriptorConverter {
 
 		Link linkToCollectionResource = entityLinks.linkToCollectionResource(type);
 		List<TemplateVariable> variables = linkToCollectionResource.getVariables();
-		List<Descriptor> descriptors = new ArrayList<Descriptor>(variables.size());
+		List<Descriptor> descriptors = new ArrayList<>(variables.size());
 
 		ProjectionDefinitionConfiguration projectionConfiguration = configuration.getProjectionConfiguration();
 
@@ -309,7 +309,7 @@ public class RootResourceInformationToAlpsDescriptorConverter {
 	private List<Descriptor> buildPropertyDescriptors(final Class<?> type, LinkRelation baseRel) {
 
 		final PersistentEntity<?, ?> entity = persistentEntities.getRequiredPersistentEntity(type);
-		final List<Descriptor> propertyDescriptors = new ArrayList<Descriptor>();
+		final List<Descriptor> propertyDescriptors = new ArrayList<>();
 		final JacksonMetadata jackson = new JacksonMetadata(mapper, type);
 		final ResourceMetadata metadata = associations.getMetadataFor(entity.getType());
 
@@ -374,11 +374,11 @@ public class RootResourceInformationToAlpsDescriptorConverter {
 	private Collection<Descriptor> buildSearchResourceDescriptors(PersistentEntity<?, ?> entity) {
 
 		ResourceMetadata metadata = associations.getMetadataFor(entity.getType());
-		List<Descriptor> descriptors = new ArrayList<Descriptor>();
+		List<Descriptor> descriptors = new ArrayList<>();
 
 		for (MethodResourceMapping methodMapping : metadata.getSearchResourceMappings()) {
 
-			List<Descriptor> parameterDescriptors = new ArrayList<Descriptor>();
+			List<Descriptor> parameterDescriptors = new ArrayList<>();
 
 			for (ParameterMetadata parameterMetadata : methodMapping.getParametersMetadata()) {
 

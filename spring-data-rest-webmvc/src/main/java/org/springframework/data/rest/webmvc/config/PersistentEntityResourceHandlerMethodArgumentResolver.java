@@ -90,7 +90,7 @@ public class PersistentEntityResourceHandlerMethodArgumentResolver implements Ha
 		this.resourceInformationResolver = resourceInformationResolver;
 		this.idResolver = idResolver;
 		this.lookups = lookups;
-		this.jsonPatchHandler = new JsonPatchHandler(mapper -> factory.getBindContextFor(mapper), reader);
+		this.jsonPatchHandler = new JsonPatchHandler(factory::getBindContextFor, reader);
 	}
 
 	@Override

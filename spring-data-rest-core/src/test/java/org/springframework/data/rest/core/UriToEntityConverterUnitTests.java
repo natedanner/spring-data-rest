@@ -172,9 +172,8 @@ class UriToEntityConverterUnitTests {
 		var uuid = UUID.randomUUID();
 
 		assertThat(converter.convert(URI.create("/foo/" + uuid), URI_TYPE, typeDescriptor))
-				.isInstanceOfSatisfying(Association.class, it -> {
-					assertThat(it.getId()).isEqualTo(JMoleculesIdentifier.of(uuid));
-				});
+				.isInstanceOfSatisfying(Association.class, it ->
+					assertThat(it.getId()).isEqualTo(JMoleculesIdentifier.of(uuid)));
 	}
 
 	static class Entity {
@@ -213,10 +212,12 @@ class UriToEntityConverterUnitTests {
 
 			@Override
 			public boolean equals(Object o) {
-				if (this == o)
+				if (this == o) {
 					return true;
-				if (o == null || getClass() != o.getClass())
+				}
+				if (o == null || getClass() != o.getClass()) {
 					return false;
+				}
 
 				JMoleculesIdentifier that = (JMoleculesIdentifier) o;
 

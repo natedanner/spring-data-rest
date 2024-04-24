@@ -24,7 +24,7 @@ import org.springframework.data.rest.webmvc.json.patch.SpelPath.UntypedSpelPath;
  * @author Craig Walls
  * @author Oliver Gierke
  */
-class RemoveOperation extends PatchOperation {
+final class RemoveOperation extends PatchOperation {
 
 	/**
 	 * Constructs the remove operation

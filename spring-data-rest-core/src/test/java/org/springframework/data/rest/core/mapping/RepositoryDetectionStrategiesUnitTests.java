@@ -40,7 +40,7 @@ class RepositoryDetectionStrategiesUnitTests {
 	@Test // DATAREST-473
 	void allExposesAllRepositories() {
 
-		assertExposures(ALL, new HashMap<Class<?>, Boolean>() {
+		assertExposures(ALL, new HashMap<>() {
 			{
 				put(AnnotatedRepository.class, true);
 				put(HiddenRepository.class, true);
@@ -53,7 +53,7 @@ class RepositoryDetectionStrategiesUnitTests {
 	@Test // DATAREST-473
 	void defaultHonorsVisibilityAndAnnotations() {
 
-		assertExposures(DEFAULT, new HashMap<Class<?>, Boolean>() {
+		assertExposures(DEFAULT, new HashMap<>() {
 			{
 				put(AnnotatedRepository.class, true);
 				put(HiddenRepository.class, false);
@@ -66,7 +66,7 @@ class RepositoryDetectionStrategiesUnitTests {
 	@Test // DATAREST-473
 	void visibilityHonorsTypeVisibilityOnly() {
 
-		assertExposures(VISIBILITY, new HashMap<Class<?>, Boolean>() {
+		assertExposures(VISIBILITY, new HashMap<>() {
 			{
 				put(AnnotatedRepository.class, false);
 				put(HiddenRepository.class, true);
@@ -79,7 +79,7 @@ class RepositoryDetectionStrategiesUnitTests {
 	@Test // DATAREST-473
 	void annotatedHonorsAnnotationsOnly() {
 
-		assertExposures(ANNOTATED, new HashMap<Class<?>, Boolean>() {
+		assertExposures(ANNOTATED, new HashMap<>() {
 			{
 				put(AnnotatedRepository.class, true);
 				put(HiddenRepository.class, false);

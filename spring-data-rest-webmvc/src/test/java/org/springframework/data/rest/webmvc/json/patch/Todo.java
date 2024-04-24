@@ -34,7 +34,7 @@ class Todo {
 	private String description;
 	private boolean complete;
 	private TodoType type = new TodoType();
-	private List<String> items = new ArrayList<String>();
+	private List<String> items = new ArrayList<>();
 	private List<String> uninitialized;
 	private BigInteger amount;
 
@@ -105,15 +105,18 @@ class Todo {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 
 		Todo todo = (Todo) o;
 
-		if (complete != todo.complete)
+		if (complete != todo.complete) {
 			return false;
+		}
 		if (!ObjectUtils.nullSafeEquals(id, todo.id)) {
 			return false;
 		}

@@ -45,7 +45,7 @@ import org.springframework.http.converter.HttpMessageNotWritableException;
  */
 public class UriListHttpMessageConverter implements HttpMessageConverter<RepresentationModel<?>> {
 
-	private static final List<MediaType> MEDIA_TYPES = new ArrayList<MediaType>();
+	private static final List<MediaType> MEDIA_TYPES = new ArrayList<>();
 
 	static {
 		MEDIA_TYPES.add(MediaType.parseMediaType("text/uri-list"));

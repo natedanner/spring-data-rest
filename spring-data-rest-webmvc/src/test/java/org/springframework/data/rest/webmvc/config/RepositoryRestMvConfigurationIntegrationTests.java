@@ -158,10 +158,9 @@ class RepositoryRestMvConfigurationIntegrationTests {
 		Collection<MappingJackson2HttpMessageConverter> converters = context
 				.getBeansOfType(MappingJackson2HttpMessageConverter.class).values();
 
-		converters.forEach(converter -> {
+		converters.forEach(converter ->
 			assertThat(converter).isInstanceOfAny(TypeConstrainedMappingJackson2HttpMessageConverter.class,
-					AlpsJsonHttpMessageConverter.class);
-		});
+					AlpsJsonHttpMessageConverter.class));
 	}
 
 	@Test // DATAREST-424

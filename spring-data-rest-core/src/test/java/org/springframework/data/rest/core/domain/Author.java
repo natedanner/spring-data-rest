@@ -24,5 +24,6 @@ import org.springframework.data.annotation.Id;
 public class Author {
 
 	@Id Long id;
-	String firstname, lastname;
+	String firstname;
+	String lastname;
 }

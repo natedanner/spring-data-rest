@@ -134,7 +134,7 @@ class RepositoryResourceMappingsIntegrationTests {
 		assertThat(searchResourceMappings).isEmpty();
 
 		ResourceMetadata personMetadata = mappings.getMetadataFor(Person.class);
-		List<String> methodNames = new ArrayList<String>();
+		List<String> methodNames = new ArrayList<>();
 
 		for (MethodResourceMapping method : personMetadata.getSearchResourceMappings()) {
 			methodNames.add(method.getMethod().getName());

@@ -47,7 +47,7 @@ public interface RepositoryDetectionStrategy {
 	 * @since 2.5
 	 * @soundtrack Katinka - Ausverkauf
 	 */
-	public static enum RepositoryDetectionStrategies implements RepositoryDetectionStrategy {
+	public enum RepositoryDetectionStrategies implements RepositoryDetectionStrategy {
 
 		/**
 		 * Considers all repositories.

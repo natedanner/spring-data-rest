@@ -82,7 +82,7 @@ class JacksonSerializersUnitTests {
 	static class Sample {
 
 		enum SampleEnum {
-			VALUE;
+			VALUE
 		}
 
 		public SampleEnum property;

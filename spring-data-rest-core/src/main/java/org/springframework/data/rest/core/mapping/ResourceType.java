@@ -22,5 +22,5 @@ package org.springframework.data.rest.core.mapping;
  */
 public enum ResourceType {
 
-	COLLECTION, ITEM;
+	COLLECTION, ITEM
 }

@@ -58,7 +58,7 @@ public class PersistentEntitiesResourceMappings implements ResourceMappings {
 
 		Assert.notNull(type, "Type must not be null");
 
-		return cache.computeIfAbsent(ProxyUtils.getUserClass(type), it -> getMappingMetadataFor(it));
+		return cache.computeIfAbsent(ProxyUtils.getUserClass(type), this::getMappingMetadataFor);
 	}
 
 	/**

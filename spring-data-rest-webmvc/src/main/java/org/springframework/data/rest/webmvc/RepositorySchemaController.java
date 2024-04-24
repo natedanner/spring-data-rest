@@ -63,6 +63,6 @@ class RepositorySchemaController {
 	public HttpEntity<JsonSchema> schema(RootResourceInformation resourceInformation) {
 
 		JsonSchema schema = jsonSchemaConverter.convert(resourceInformation.getDomainType());
-		return new ResponseEntity<JsonSchema>(schema, HttpStatus.OK);
+		return new ResponseEntity<>(schema, HttpStatus.OK);
 	}
 }

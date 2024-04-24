@@ -141,7 +141,7 @@ public class DefaultLinkCollector implements LinkCollector {
 
 		private final Path basePath;
 		private final Associations associationLinks;
-		private final List<Link> links = new ArrayList<Link>();
+		private final List<Link> links = new ArrayList<>();
 
 		public LinkCollectingAssociationHandler(Path basePath, Associations associationLinks) {
 

@@ -48,7 +48,7 @@ import com.fasterxml.jackson.databind.util.NameTransformer;
  * @author Mark Paluch
  * @since 2.6
  */
-class WrappedProperties {
+final class WrappedProperties {
 
 	private static final ClassIntrospector INTROSPECTOR = new BasicClassIntrospector();
 	private static final AnnotationIntrospector ANNOTATION_INTROSPECTOR = new JacksonAnnotationIntrospector();
@@ -61,7 +61,7 @@ class WrappedProperties {
 	 * @param fieldNameToProperties must not be {@literal null}.
 	 */
 	private WrappedProperties(Map<String, List<PersistentProperty<?>>> fieldNameToProperties) {
-		this.fieldNameToProperties = new HashMap<String, List<PersistentProperty<?>>>(fieldNameToProperties);
+		this.fieldNameToProperties = new HashMap<>(fieldNameToProperties);
 	}
 
 	/**
@@ -106,7 +106,7 @@ class WrappedProperties {
 
 		return hasPersistentPropertiesForField(fieldName)
 				? Collections.unmodifiableList(fieldNameToProperties.get(fieldName))
-				: Collections.<PersistentProperty<?>> emptyList();
+				: Collections. emptyList();
 	}
 
 	/**
@@ -171,7 +171,7 @@ class WrappedProperties {
 		private Map<String, List<PersistentProperty<?>>> findUnwrappedPropertyPaths(NameTransformer nameTransformer,
 				AnnotatedMember annotatedMember, PersistentProperty<?> persistentProperty) {
 
-			Map<String, List<PersistentProperty<?>>> mapping = new HashMap<String, List<PersistentProperty<?>>>();
+			Map<String, List<PersistentProperty<?>>> mapping = new HashMap<>();
 
 			NameTransformer propertyNameTransformer = NameTransformer.chainedTransformer(nameTransformer,
 					ANNOTATION_INTROSPECTOR.findUnwrappingNameTransformer(annotatedMember));
@@ -181,7 +181,7 @@ class WrappedProperties {
 
 			for (Entry<String, List<PersistentProperty<?>>> entry : nestedProperties.entrySet()) {
 
-				List<PersistentProperty<?>> persistentProperties = new ArrayList<PersistentProperty<?>>();
+				List<PersistentProperty<?>> persistentProperties = new ArrayList<>();
 
 				persistentProperties.add(persistentProperty);
 				persistentProperties.addAll(entry.getValue());
@@ -195,7 +195,7 @@ class WrappedProperties {
 		private List<BeanPropertyDefinition> getMappedProperties(PersistentEntity<?, ?> entity) {
 
 			List<BeanPropertyDefinition> properties = getBeanDescription(entity.getType()).findProperties();
-			List<BeanPropertyDefinition> withInternalName = new ArrayList<BeanPropertyDefinition>(properties.size());
+			List<BeanPropertyDefinition> withInternalName = new ArrayList<>(properties.size());
 
 			for (BeanPropertyDefinition property : properties) {
 

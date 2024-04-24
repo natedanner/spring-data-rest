@@ -26,7 +26,7 @@ import org.springframework.util.Assert;
  *
  * @author Oliver Drotbohm
  */
-public class InputStreamHttpInputMessage implements HttpInputMessage {
+public final class InputStreamHttpInputMessage implements HttpInputMessage {
 
 	private final InputStream body;
 

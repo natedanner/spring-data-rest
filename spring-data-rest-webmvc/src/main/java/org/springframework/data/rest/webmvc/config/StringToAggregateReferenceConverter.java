@@ -156,7 +156,7 @@ class StringToAggregateReferenceConverter implements GenericConverter {
 
 		@Override
 		public AssociationAggregateReference<T, ID> withIdSource(Function<UriComponents, Object> extractor) {
-			return new ResolvingAssociationAggregateReference<T, ID>(delegate.withIdSource(extractor));
+			return new ResolvingAssociationAggregateReference<>(delegate.withIdSource(extractor));
 		}
 	}
 }

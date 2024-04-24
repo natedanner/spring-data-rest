@@ -18,7 +18,7 @@ import org.springframework.hateoas.server.RepresentationModelProcessor;
  */
 public class PersistentEntityResourceProcessor implements RepresentationModelProcessor<PersistentEntityResource> {
 
-	private final List<DomainTypeResourceProcessor> resourceProcessors = new ArrayList<DomainTypeResourceProcessor>();
+	private final List<DomainTypeResourceProcessor> resourceProcessors = new ArrayList<>();
 
 	@Autowired
 	public PersistentEntityResourceProcessor(Repositories repositories,
@@ -53,7 +53,7 @@ public class PersistentEntityResourceProcessor implements RepresentationModelPro
 		return resource;
 	}
 
-	private static class DomainTypeResourceProcessor {
+	private static final class DomainTypeResourceProcessor {
 		final Class<?> domainType;
 		final RepresentationModelProcessor<EntityModel<?>> resourceProcessor;
 

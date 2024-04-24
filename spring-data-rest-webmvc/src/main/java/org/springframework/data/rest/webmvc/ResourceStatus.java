@@ -34,7 +34,7 @@ import org.springframework.util.Assert;
  * @since 2.6
  * @soundtrack Blumentopf - Dass ich nicht lache (Kein Zufall)
  */
-class ResourceStatus {
+final class ResourceStatus {
 
 	private static final String INVALID_DOMAIN_OBJECT = "Domain object %s is not an instance of the given PersistentEntity of type %s";
 
@@ -82,7 +82,7 @@ class ResourceStatus {
 				: StatusAndHeaders.modified(responseHeaders);
 	}
 
-	public static class StatusAndHeaders {
+	public static final class StatusAndHeaders {
 
 		private final HttpHeaders headers;
 		private final boolean modified;

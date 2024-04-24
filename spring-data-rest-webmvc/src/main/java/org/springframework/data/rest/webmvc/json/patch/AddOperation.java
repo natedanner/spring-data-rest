@@ -24,7 +24,7 @@ import org.springframework.data.rest.webmvc.json.patch.SpelPath.UntypedSpelPath;
  * @author Craig Walls
  * @author Oliver Gierke
  */
-class AddOperation extends PatchOperation {
+final class AddOperation extends PatchOperation {
 
 	/**
 	 * Constructs the add operation

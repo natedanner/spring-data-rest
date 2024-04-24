@@ -49,8 +49,10 @@ class RepositoryCollectionResourceMapping implements CollectionResourceMapping {
 	private final RepositoryMetadata metadata;
 	private final Path path;
 
-	private final Lazy<LinkRelation> rel, itemResourceRel;
-	private final Lazy<ResourceDescription> description, itemDescription;
+	private final Lazy<LinkRelation> rel;
+	private final Lazy<LinkRelation> itemResourceRel;
+	private final Lazy<ResourceDescription> description;
+	private final Lazy<ResourceDescription> itemDescription;
 	private final Lazy<Class<?>> excerptProjection;
 
 	public RepositoryCollectionResourceMapping(RepositoryMetadata metadata, RepositoryDetectionStrategy strategy) {

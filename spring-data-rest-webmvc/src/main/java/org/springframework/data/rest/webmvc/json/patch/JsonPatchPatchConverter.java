@@ -59,7 +59,7 @@ public class JsonPatchPatchConverter implements PatchConverter<JsonNode> {
 		}
 
 		ArrayNode opNodes = (ArrayNode) jsonNode;
-		List<PatchOperation> ops = new ArrayList<PatchOperation>(opNodes.size());
+		List<PatchOperation> ops = new ArrayList<>(opNodes.size());
 
 		for (Iterator<JsonNode> elements = opNodes.elements(); elements.hasNext();) {
 
@@ -72,17 +72,17 @@ public class JsonPatchPatchConverter implements PatchConverter<JsonNode> {
 			Object value = valueFromJsonNode(path, valueNode);
 			String from = opNode.has("from") ? opNode.get("from").textValue() : null;
 
-			if (opType.equals("test")) {
+			if ("test".equals(opType)) {
 				ops.add(TestOperation.whetherValueAt(path).hasValue(value));
-			} else if (opType.equals("replace")) {
+			} else if ("replace".equals(opType)) {
 				ops.add(ReplaceOperation.valueAt(path).with(value));
-			} else if (opType.equals("remove")) {
+			} else if ("remove".equals(opType)) {
 				ops.add(RemoveOperation.valueAt(path));
-			} else if (opType.equals("add")) {
+			} else if ("add".equals(opType)) {
 				ops.add(AddOperation.of(path, value));
-			} else if (opType.equals("copy")) {
+			} else if ("copy".equals(opType)) {
 				ops.add(CopyOperation.from(from).to(path));
-			} else if (opType.equals("move")) {
+			} else if ("move".equals(opType)) {
 				ops.add(MoveOperation.from(from).to(path));
 			} else {
 				throw new PatchException("Unrecognized operation type: " + opType);
